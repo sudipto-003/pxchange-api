@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
@@ -76,6 +77,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'olx_clone.wsgi.application'
+ASGI_APPLICATION = 'olx_clone.routing.application'
 
 
 # Database
@@ -154,3 +156,13 @@ EMAIL_HOST_USER = 'noreply.testmywork@gmail.com'
 EMAIL_HOST_PASSWORD = 'Z4h8txASYFsmr9j'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+#Channels Layer
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.ReddisChannelLayers',
+        'CONFIG': {
+            'hosts': 'redis://localhost:6379'
+        }
+    }
+}
