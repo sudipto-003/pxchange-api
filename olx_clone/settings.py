@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'custom_auth',
     'sellposts',
+    'chat',
 ]
 
 MIDDLEWARE = [
